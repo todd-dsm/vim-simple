@@ -67,8 +67,25 @@ set showcmd
 " Always show status line
 set laststatus=2
 
-" Simple status line
+
+"==============================================================================
+" VISUAL SETTINGS
+"==============================================================================
+set laststatus=2
 set statusline=%f\ %m%r%h%w[%{&ff}]%y[%p%%][%04l,%04v]
+
+" Color the visual guide
+highlight colorcolumn ctermbg=237
+
+"==============================================================================
+" COLOR SCHEME
+"==============================================================================
+" set t_Co=16
+set background=dark
+" let g:solarized_termtrans=1
+" let g:solarized_termcolors=16
+" colorscheme solarized"
+" colorscheme desert
 
 "==============================================================================
 " USEFUL MAPPINGS
