@@ -1,0 +1,15 @@
+# .gitignore
+
+# Vim plugin directories
+.vim/autoload/pathogen.vim
+vim/.netrwhist
+vim/autoload/
+vim/bundle/
+vim/snippets/
+
+# OS generated files
+.DS_Store
+.netrwhist
+*.swp
+*.swo
+
