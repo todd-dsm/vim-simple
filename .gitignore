@@ -1,6 +1,4 @@
 # .gitignore
-# TEST File
-yo.sh
 
 # Vim plugin directories (vim-plug)
 vim/.netrwhist
@@ -11,6 +9,10 @@ vim/snippets/
 # Claude Files
 CLAUDE.md
 .claude/
+zissues/
+
+# TEST File
+yo.sh
 
 # OS generated files
 .DS_Store
