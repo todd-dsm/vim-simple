@@ -94,12 +94,34 @@ set showcmd
 " Always show status line
 set laststatus=2
 
+" Modern status line with git branch and ALE integration
+set statusline=
+set statusline+=[Buf:\ %n]                      " Buffer number
+set statusline+=\ %f                             " Filename
+set statusline+=\ %m%r%h%w                       " Modified/readonly flags
+set statusline+=\ [%{&ff},                       " File format (unix/dos)
+set statusline+=\ %{strlen(&ft)?&ft:'none'},    " Filetype
+set statusline+=\ %{&encoding}]                  " Encoding
+set statusline+=\ %{FugitiveStatusline()}        " Git branch via fugitive
+set statusline+=\ %{ALEStatus()}                 " ALE errors/warnings
+set statusline+=%=                               " Right align from here
+set statusline+=\ [0x%02B]                       " Character hex value
+set statusline+=\ [Line:\ %04l/%04L              " Current/total lines
+set statusline+=\ \|\ Col:\ %02c]               " Column
+set statusline+=\ %P                             " Percentage through file
 
-"==============================================================================
-" VISUAL SETTINGS
-"==============================================================================
-set laststatus=2
-set statusline=%f\ %m%r%h%w[%{&ff}]%y[%p%%][%04l,%04v]
+" Helper function for ALE status
+function! ALEStatus() abort
+  let l:counts = ale#statusline#Count(bufnr(''))
+  let l:errors = l:counts.error + l:counts.style_error
+  let l:warnings = l:counts.warning + l:counts.style_warning
+
+  if l:errors == 0 && l:warnings == 0
+    return '[✓]'
+  endif
+
+  return printf('[E:%d W:%d]', l:errors, l:warnings)
+endfunction
 
 " Color the visual guide
 highlight colorcolumn ctermbg=237
