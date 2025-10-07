@@ -4,9 +4,36 @@
 "==============================================================================
 " PLUGIN MANAGEMENT
 "==============================================================================
-" Initialize Pathogen first, before everything else
-execute pathogen#infect()
-execute pathogen#helptags()
+" Auto-install vim-plug if not present
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" Initialize vim-plug
+call plug#begin('~/.vim/plugged')
+
+" Core functionality plugins
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+
+" Syntax checking (modern async linter)
+Plug 'dense-analysis/ale'
+
+" Snippet support
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+
+" Auto-completion popup
+Plug 'vim-scripts/L9'
+Plug 'othree/vim-autocomplpop'
+
+call plug#end()
 
 "==============================================================================
 " BASIC SETTINGS
@@ -114,6 +141,10 @@ set noswapfile
 " Auto-remove trailing whitespace on save
 autocmd BufWritePre * %s/\s\+$//e
 
+" Force filetype associations
+autocmd BufRead,BufNewFile *.sh set filetype=bash
+autocmd BufRead,BufNewFile *.zsh set filetype=zsh
+
 "==============================================================================
 " ALE (SYNTAX CHECKING) CONFIGURATION
 "==============================================================================
@@ -147,3 +178,15 @@ let g:snipMate.snippet_version = 1
 let g:snipMate.scope_aliases = {}
 " let g:snipMate.scope_aliases['sh'] = 'sh,bash,zsh'
 let g:snipMate.scope_aliases['sh'] = 'bash'
+
+"==============================================================================
+" AUTOCOMPLPOP CONFIGURATION
+"==============================================================================
+" Enable AutoComplPop at startup
+let g:acp_enableAtStartup = 1
+
+" Trigger keyword completion after 2 characters (default is 2)
+let g:acp_behaviorKeywordLength = 2
+
+" Make sure completeopt is set correctly for AutoComplPop
+set completeopt=menu,preview,longest

@@ -8,6 +8,10 @@ vim/autoload/
 vim/plugged/
 vim/snippets/
 
+# Claude Files
+CLAUDE.md
+.claude/
+
 # OS generated files
 .DS_Store
 .netrwhist
