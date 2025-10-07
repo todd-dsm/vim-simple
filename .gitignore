@@ -1,10 +1,11 @@
 # .gitignore
+# TEST File
+yo.sh
 
-# Vim plugin directories
-.vim/autoload/pathogen.vim
+# Vim plugin directories (vim-plug)
 vim/.netrwhist
 vim/autoload/
-vim/bundle/
+vim/plugged/
 vim/snippets/
 
 # OS generated files
