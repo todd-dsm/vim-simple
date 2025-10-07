@@ -41,6 +41,9 @@ call plug#end()
 " Use Vim settings, not Vi
 set nocompatible
 
+" Set encoding
+set encoding=utf-8
+
 " Set leader key (comma is easier to reach than backslash)
 let mapleader = ","
 
