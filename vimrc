@@ -155,6 +155,9 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 let g:ale_lint_on_save = 1
 
+" Disable inline virtual text messages (keep status line only)
+let g:ale_virtualtext_cursor = 0
+
 "==============================================================================
 " GIT FUGITIVE MAPPINGS
 "==============================================================================
