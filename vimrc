@@ -33,6 +33,9 @@ Plug 'honza/vim-snippets'
 Plug 'vim-scripts/L9'
 Plug 'othree/vim-autocomplpop'
 
+" Colorscheme
+Plug 'lifepillar/vim-solarized8'
+
 call plug#end()
 
 "==============================================================================
@@ -132,12 +135,24 @@ highlight colorcolumn ctermbg=237
 "==============================================================================
 " COLOR SCHEME
 "==============================================================================
-" set t_Co=16
+" Enable true color support only in iTerm2
+if $TERM_PROGRAM == 'iTerm.app'
+  set termguicolors
+else
+  set t_Co=256
+endif
+
+" Set dark background
 set background=dark
-" let g:solarized_termtrans=1
-" let g:solarized_termcolors=16
-" colorscheme solarized"
-" colorscheme desert
+
+" Enable Solarized8 colorscheme (only if installed)
+silent! colorscheme solarized8
+
+" Fix line number and sign column backgrounds
+highlight clear LineNr
+highlight clear SignColumn
+highlight LineNr guibg=NONE ctermbg=NONE
+highlight SignColumn guibg=NONE ctermbg=NONE
 
 "==============================================================================
 " USEFUL MAPPINGS
