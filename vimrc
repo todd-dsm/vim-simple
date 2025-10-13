@@ -108,8 +108,8 @@ set statusline+=\ %m%r%h%w                       " Modified/readonly flags
 set statusline+=\ [%{&ff},                       " File format (unix/dos)
 set statusline+=\ %{strlen(&ft)?&ft:'none'},    " Filetype
 set statusline+=\ %{&encoding}]                  " Encoding
-set statusline+=\ %{FugitiveStatusline()}        " Git branch via fugitive
-set statusline+=\ %{ALEStatus()}                 " ALE errors/warnings
+set statusline+=\ %{exists('*FugitiveHead')?'['.FugitiveHead().']':''}        " Git branch via fugitive
+set statusline+=\ %{exists('*ALEStatus')?ALEStatus():''}                 " ALE errors/warnings
 set statusline+=%=                               " Right align from here
 set statusline+=\ [0x%02B]                       " Character hex value
 set statusline+=\ [Line:\ %04l/%04L              " Current/total lines
@@ -118,6 +118,10 @@ set statusline+=\ %P                             " Percentage through file
 
 " Helper function for ALE status
 function! ALEStatus() abort
+  if !exists('*ale#statusline#Count')
+    return ''
+  endif
+
   let l:counts = ale#statusline#Count(bufnr(''))
   let l:errors = l:counts.error + l:counts.style_error
   let l:warnings = l:counts.warning + l:counts.style_warning
