@@ -11,8 +11,8 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
-" Initialize vim-plug
-call plug#begin('~/.vim/plugged')
+" Initialize vim-plug (plugins stored outside repo)
+call plug#begin('~/.vim-plugged')
 
 " Core functionality plugins
 Plug 'tpope/vim-sensible'

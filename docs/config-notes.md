@@ -38,11 +38,13 @@ vim
 ### 4. Disable Conflicting Bundled Snippets
 
 ```bash
-cd ~/.vim/plugged/vim-snippets/snippets/
+cd ~/.vim-plugged/vim-snippets/snippets/
 mv bash.snippets bash.snippets.disabled
 mv sh.snippets sh.snippets.disabled
 mv zsh.snippets zsh.snippets.disabled
 ```
+
+**Note:** Plugins are installed to `~/.vim-plugged` (outside the repo) to keep the repository clean for development.
 
 **Done!** Your Vim is now configured.
 
