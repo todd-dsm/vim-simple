@@ -222,9 +222,8 @@ let g:snipMate.override = 1
 let g:snipMate.snippet_version = 1
 
 " Optional: Custom scope aliases for related filetypes
-let g:snipMate.scope_aliases = {}
-" Map bash filetype to also load sh snippets
-let g:snipMate.scope_aliases['bash'] = 'sh'
+" Not needed - we use bash filetype with bash.snippets directly
+" let g:snipMate.scope_aliases = {}
 
 "==============================================================================
 " AUTOCOMPLPOP CONFIGURATION
