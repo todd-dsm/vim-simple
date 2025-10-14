@@ -221,8 +221,8 @@ let g:snipMate.override = 1
 " Use modern parser version
 let g:snipMate.snippet_version = 1
 
-" Use only custom snippets, ignore bundled vim-snippets
-let g:snipMate.snippet_dirs = ['~/.vim/after/snippets']
+" Use only repo snippets, ignore bundled vim-snippets plugin
+let g:snipMate.snippet_dirs = [$HOME . '/.vim/after']
 
 "==============================================================================
 " AUTOCOMPLPOP CONFIGURATION
