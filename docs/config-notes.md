@@ -35,15 +35,6 @@ vim
 - This takes 30-60 seconds
 - Vim will reload automatically when done
 
-### 4. Disable Conflicting Bundled Snippets
-
-```bash
-cd ~/.vim-plugged/vim-snippets/snippets/
-mv bash.snippets bash.snippets.disabled
-mv sh.snippets sh.snippets.disabled
-mv zsh.snippets zsh.snippets.disabled
-```
-
 **Note:** Plugins are installed to `~/.vim-plugged` (outside the repo) to keep the repository clean for development.
 
 **Done!** Your Vim is now configured.
@@ -70,7 +61,11 @@ mv zsh.snippets zsh.snippets.disabled
 
 ### Bash snippets with modern syntax:
 
+- `bash<Tab>` - shebang: `#!/usr/bin/env bash`
+- `#!<Tab>` - shebang (alternative trigger)
+- `sbash<Tab>` - shebang with `set -euo pipefail`
 - `if<Tab>` - if statement with `[[ ]]`
+- `elif<Tab>` - elif statement with `[[ ]]`
 - `for<Tab>` - for loop
 - `while<Tab>` - while loop
 - `case<Tab>` - case statement
@@ -103,6 +98,54 @@ vim /tmp/test.sh
 :PlugClean      " Remove unlisted plugins
 :PlugStatus     " Check plugin status
 ```
+
+## Snippet Configuration Details
+
+### Why Custom Snippets?
+
+The bundled vim-snippets plugin provides comprehensive snippets for many languages, but creates a conflict for bash scripting:
+
+**The Problem:**
+- vim-snippets includes both `sh.snippets` and `bash.snippets`
+- The `bash.snippets` file contains `extends sh` which loads both files
+- This creates duplicate "if", "for", "while" triggers
+- SnipMate prompts you to choose between "bash" or "sh" versions every time
+- We only write GNU bash scripts, never POSIX sh scripts
+
+**The Solution:**
+- Configure SnipMate to load ONLY from `~/.vim/after/snippets/` (vimrc:225)
+- Completely ignore the bundled vim-snippets plugin directory
+- Maintain our own `bash.snippets` with modern `[[ ]]` syntax
+
+**The Tradeoff:**
+- ✅ No more bash/sh prompts - snippets expand immediately
+- ✅ All snippets use modern bash best practices (`[[ ]]`, not `[ ]`)
+- ✅ Full control over snippet behavior
+- ⚠️ Must manually add snippets from vim-snippets if needed
+
+### Adding More Snippets
+
+If you need additional snippets from vim-snippets:
+
+1. View available snippets:
+   ```bash
+   cat ~/.vim-plugged/vim-snippets/snippets/bash.snippets
+   cat ~/.vim-plugged/vim-snippets/snippets/sh.snippets
+   ```
+
+2. Copy desired snippets to your repo file:
+   ```bash
+   vim ~/code/vim-simple/vim/after/snippets/bash.snippets
+   ```
+
+3. Commit to your repo so Ansible deploys them
+
+### Current Snippet Inventory
+
+Located in `vim/after/snippets/bash.snippets`:
+- Shebangs: `bash`, `#!`, `sbash`
+- Control flow: `if`, `elif`, `for`, `while`, `case`
+- All using modern `[[ ]]` conditionals
 
 ## References
 
