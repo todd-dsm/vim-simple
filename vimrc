@@ -218,12 +218,11 @@ let g:snipMate = get(g:, 'snipMate', {})
 " Enable snippet override (disables selection dialog)
 let g:snipMate.override = 1
 
-" Use modern parser version  
+" Use modern parser version
 let g:snipMate.snippet_version = 1
 
-" Optional: Custom scope aliases for related filetypes
-" Not needed - we use bash filetype with bash.snippets directly
-" let g:snipMate.scope_aliases = {}
+" Use only custom snippets, ignore bundled vim-snippets
+let g:snipMate.snippet_dirs = ['~/.vim/after/snippets']
 
 "==============================================================================
 " AUTOCOMPLPOP CONFIGURATION
