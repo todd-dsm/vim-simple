@@ -140,7 +140,7 @@ highlight colorcolumn ctermbg=237
 " COLOR SCHEME
 "==============================================================================
 " Enable true color support only in iTerm2
-if $TERM_PROGRAM == 'iTerm.app'
+if $TERM_PROGRAM == 'iTerm.app' || ($TERM_PROGRAM == 'Apple_Terminal' && has('termguicolors'))
   set termguicolors
 else
   set t_Co=256
