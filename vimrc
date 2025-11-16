@@ -133,12 +133,12 @@ function! ALEStatus() abort
   return printf('[E:%d W:%d]', l:errors, l:warnings)
 endfunction
 
-" Color the visual guide
-highlight colorcolumn ctermbg=237
-
 "==============================================================================
 " COLOR SCHEME
 "==============================================================================
+" Color the visual guide
+highlight colorcolumn ctermbg=237
+
 " Enable true color support only in iTerm2
 if $TERM_PROGRAM == 'iTerm.app' || ($TERM_PROGRAM == 'Apple_Terminal' && has('termguicolors'))
   set termguicolors
