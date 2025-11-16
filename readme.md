@@ -5,9 +5,12 @@ This is pretty much a "sensible defaults" build that supports Bash auto-completi
 ## The PRE-TAHOE Edition
 
 ```shell
-% grep -nA1 'COLOR SCHEME' vimrc
+% grep -nA4 'COLOR SCHEME' vimrc
 137:" COLOR SCHEME: Tahoe supports 24-bit color; previous versions only 256 colors.
 138-" This is the only difference between the pre-Tahoe and main branches.
+139-"==============================================================================
+140-" Color the visual guide
+141-highlight colorcolumn ctermbg=237
 ```
 
 ## Quick Start
