@@ -14,24 +14,19 @@ ln -s code/vim-simple/vim ~/.vim
 This should explain the broad strokes:
 
 ```shell
-% tree -d -L 3                       
-.
-└── vim
-    ├── after
-    │   ├── ftplugin
-    │   └── snippets
-    ├── autoload
-    ├── bundle
-    │   ├── ale
-    │   ├── tlib_vim
-    │   ├── vim-addon-mw-utils
-    │   ├── vim-commentary
-    │   ├── vim-fugitive
-    │   ├── vim-sensible
-    │   ├── vim-snipmate
-    │   ├── vim-snippets
-    │   └── vim-surround
-    ├── colors
-    ├── doc
-    └── snippets
+% tree -d -L1  ~/.vim-plugged
+~/.vim-plugged
+├── ale
+├── auto-pairs
+├── L9
+├── tlib_vim
+├── vim-addon-mw-utils
+├── vim-autocomplpop
+├── vim-commentary
+├── vim-fugitive
+├── vim-sensible
+├── vim-snipmate
+├── vim-snippets
+├── vim-solarized8
+└── vim-surround
 ```

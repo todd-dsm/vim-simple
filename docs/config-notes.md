@@ -46,13 +46,14 @@ vim
 - **vim-plug**: Modern plugin manager with auto-installation
 - **vim-sensible**: Sensible defaults
 - **vim-commentary**: `gcc` to comment/uncomment lines
-- **vim-surround**: Surround text with quotes, brackets, etc.
+- **auto-pairs**: automatic pairing while working
+- **vim-surround**: add surrounding pairs to existing text
 - **vim-fugitive**: Git integration (`,gs`, `,gd`, `,gb`)
 - **ALE**: Asynchronous syntax checking with bash and shellcheck
 - **SnipMate**: Snippet engine with modern Bash snippets
 - **AutoComplPop**: Auto-completion popup (appears after 3 characters)
 
-### Custom key mappings:
+### Custom Key Mappings
 
 - `,N` - toggle line numbers
 - `,l` - toggle invisible characters  

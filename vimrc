@@ -18,6 +18,7 @@ call plug#begin('~/.vim-plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
 Plug 'tpope/vim-fugitive'
 
 " Syntax checking (modern async linter)
