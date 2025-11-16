@@ -8,10 +8,10 @@ The macOS Terminal only supported 256 colors before Tahoe; it's what we had.
 
 ```shell
 % grep -nA3 'COLOR SCHEME' vimrc
-138:" COLOR SCHEME
-139-"==============================================================================
-140-" Color the visual guide
-141-highlight colorcolumn ctermbg=237
+138:" COLOR SCHEME: Tahoe supports 24-bit color; previous versions only 256 colors.
+139-" This is the only difference between the pre-Tahoe and main branches.
+140-"==============================================================================
+141-" Color the visual guide
 ```
 
 ## Quick Start
