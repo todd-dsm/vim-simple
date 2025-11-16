@@ -135,8 +135,7 @@ function! ALEStatus() abort
 endfunction
 
 "==============================================================================
-" COLOR SCHEME: Tahoe supports 24-bit color; previous versions only 256 colors.
-" This is the only difference between the pre-Tahoe and main branches.
+" COLOR SCHEME
 "==============================================================================
 " Color the visual guide
 highlight colorcolumn ctermbg=237
