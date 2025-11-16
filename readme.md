@@ -1,20 +1,30 @@
 # vim-simple
 
-The same vim config I had before; this time done correctly.
+This is pretty much a "sensible defaults" build that supports Bash auto-completions. I just don't like writing GNU Bash scripts in an IDE; I wasn't raised that way.
 
-This is pretty much a "sensible defaults" build that supports Bash with auto-completions. I just don't like writing GNU Bash scripts in an IDE; I wasn't raised that way.
-
-Clone to `~/code/` then softlink to the home directory:
+## The PRE-TAHOE Edition
 
 ```shell
-ln -s code/vim-simple/vimrc ~/.vimrc
-ln -s code/vim-simple/vim ~/.vim
+% grep -nA1 'COLOR SCHEME' vimrc
+137:" COLOR SCHEME: Tahoe supports 24-bit color; previous versions only 256 colors.
+138-" This is the only difference between the pre-Tahoe and main branches.
+```
+
+## Quick Start
+
+```shell
+git clone git@github.com:todd-dsm/vim-simple.git && cd vim-simple/
+```
+
+```shell
+ln -s vimrc ~/.vimrc
+ln -s vim ~/.vim
 ```
 
 This should explain the broad strokes:
 
 ```shell
-% tree -d -L 3                       
+% tree -d -L 3
 .
 └── vim
     ├── after
