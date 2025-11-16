@@ -134,29 +134,11 @@ function! ALEStatus() abort
 endfunction
 
 "==============================================================================
-" COLOR SCHEME
+" COLOR SCHEME: Tahoe supports 24-bit color; previous versions only 256 colors.
+" This is the only difference between the pre-Tahoe and main branches.
 "==============================================================================
 " Color the visual guide
 highlight colorcolumn ctermbg=237
-
-" Enable true color support only in iTerm2
-if $TERM_PROGRAM == 'iTerm.app' || ($TERM_PROGRAM == 'Apple_Terminal' && has('termguicolors'))
-  set termguicolors
-else
-  set t_Co=256
-endif
-
-" Set dark background
-set background=dark
-
-" Enable Solarized8 colorscheme (only if installed)
-silent! colorscheme solarized8
-
-" Fix line number and sign column backgrounds
-highlight clear LineNr
-highlight clear SignColumn
-highlight LineNr guibg=NONE ctermbg=NONE
-highlight SignColumn guibg=NONE ctermbg=NONE
 
 "==============================================================================
 " USEFUL MAPPINGS
