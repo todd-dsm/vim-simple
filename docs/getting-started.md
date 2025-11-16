@@ -5,8 +5,9 @@ A quick reference guide for using vim-simple and its plugins.
 ## Plugin Management (vim-plug)
 
 ### Basic Commands
+
 ```vim
-:PlugInstall    " Install all plugins listed in vimrc
+:PlugInstall    " Install all plugins listed in vimrc; or vim +PlugInstall +qall (outside of vim)
 :PlugUpdate     " Update all installed plugins
 :PlugClean      " Remove plugins no longer in vimrc
 :PlugStatus     " Check status of installed plugins
@@ -20,6 +21,7 @@ A quick reference guide for using vim-simple and its plugins.
 ## Syntax Checking & Linting (ALE)
 
 ### Commands
+
 ```vim
 :ALEInfo        " Show ALE configuration and linter status
 :ALEDetail      " Show detailed error message for current line
@@ -29,6 +31,7 @@ A quick reference guide for using vim-simple and its plugins.
 ```
 
 ### Navigation
+
 ```vim
 ]a              " Jump to next error/warning
 [a              " Jump to previous error/warning
