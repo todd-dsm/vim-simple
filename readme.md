@@ -7,7 +7,7 @@ If you haven't moved to Tahoe yet, then check out the `pre-tahoe` branch; the bi
 ## Quick Start
 
 ```shell
-git clone git@github.com:todd-dsm/vim-simple.git && cd vim-simple/
+git clone git@github.com:todd-dsm/vim-simple.git code/ && cd code/vim-simple/
 ```
 
 ```shell

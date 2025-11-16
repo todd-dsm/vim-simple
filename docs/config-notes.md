@@ -1,36 +1,24 @@
-# vim-simple Setup - Modern Plugin-based Configuration
+# vim-simple config notes
 
-This is the complete setup guide for a modern, plugin-based Bash development environment in Vim using vim-plug.
+> *"I don't always write Bash scripts, but when I do, I use Vim."*
+> ~The Most Interesting Man in the World
 
 ## Prerequisites
+
 - macOS with Terminal
 - Git installed
 - No existing Vim configuration (or backup existing `~/.vim` and `~/.vimrc`)
 
-## Installation Steps
-
-### 1. Clone Repository
-
-```bash
-cd ~/code
-git clone https://github.com/YOUR-USERNAME/vim-simple.git
-```
-
-### 2. Create Symlinks
-
-```bash
-ln -s ~/code/vim-simple/vimrc ~/.vimrc
-ln -s ~/code/vim-simple/vim ~/.vim
-```
-
 ### 3. Launch Vim
 
-```bash
+```shell
 vim
 ```
 
 **What happens on first launch:**
+
 - vim-plug automatically downloads and installs itself
+  - Plugins can always be updated outside of Vim too: `vim +PlugInstall +qall`
 - All plugins automatically download and install
 - This takes 30-60 seconds
 - Vim will reload automatically when done
@@ -56,7 +44,7 @@ vim
 ### Custom Key Mappings
 
 - `,N` - toggle line numbers
-- `,l` - toggle invisible characters  
+- `,l` - toggle invisible characters
 - `,.` - clear search highlighting
 - `F2` - toggle paste mode
 
@@ -81,11 +69,12 @@ vim
 
 ## Testing the Setup
 
-```bash
+```shell
 vim /tmp/test.sh
 ```
 
 **Test features:**
+
 - Type 'if' and press Tab → snippet expansion
 - Type 'echo' → auto-completion popup appears
 - Press 'gcc' on a line → toggles comment
@@ -107,6 +96,7 @@ vim /tmp/test.sh
 The bundled vim-snippets plugin provides comprehensive snippets for many languages, but creates a conflict for bash scripting:
 
 **The Problem:**
+
 - vim-snippets includes both `sh.snippets` and `bash.snippets`
 - The `bash.snippets` file contains `extends sh` which loads both files
 - This creates duplicate "if", "for", "while" triggers
@@ -114,36 +104,41 @@ The bundled vim-snippets plugin provides comprehensive snippets for many languag
 - We only write GNU bash scripts, never POSIX sh scripts
 
 **The Solution:**
+
 - Configure SnipMate to load ONLY from `~/.vim/after/snippets/` (vimrc:225)
 - Completely ignore the bundled vim-snippets plugin directory
 - Maintain our own `bash.snippets` with modern `[[ ]]` syntax
 
 **The Tradeoff:**
-- ✅ No more bash/sh prompts - snippets expand immediately
-- ✅ All snippets use modern bash best practices (`[[ ]]`, not `[ ]`)
-- ✅ Full control over snippet behavior
-- ⚠️ Must manually add snippets from vim-snippets if needed
+
+- No bash prompts - snippets expand immediately
+- All snippets use modern bash best practices (`[[ ]]`, not `[ ]`)
+- Full control over snippet behavior
+- Must manually add snippets from vim-snippets if needed
 
 ### Adding More Snippets
 
 If you need additional snippets from vim-snippets:
 
 1. View available snippets:
-   ```bash
+
+   ```shell
    cat ~/.vim-plugged/vim-snippets/snippets/bash.snippets
    cat ~/.vim-plugged/vim-snippets/snippets/sh.snippets
    ```
 
 2. Copy desired snippets to your repo file:
-   ```bash
+
+   ```shell
    vim ~/code/vim-simple/vim/after/snippets/bash.snippets
    ```
 
-3. Commit to your repo so Ansible deploys them
+3. Commit to *your* repo
 
 ### Current Snippet Inventory
 
 Located in `vim/after/snippets/bash.snippets`:
+
 - Shebangs: `bash`, `#!`, `sbash`
 - Control flow: `if`, `elif`, `for`, `while`, `case`
 - All using modern `[[ ]]` conditionals
