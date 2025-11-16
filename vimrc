@@ -203,6 +203,30 @@ let g:ale_lint_on_save = 1
 let g:ale_virtualtext_cursor = 0
 
 "==============================================================================
+" VIM-SURROUND CONFIGURATION
+"==============================================================================
+" vim-surround works out of the box with these commands:
+"   cs"'  - Change surrounding double quotes to single quotes
+"   cs'<q> - Change surrounding single quotes to <q> tags
+"   cst"  - Change surrounding tag to double quotes
+"   ds"   - Delete surrounding double quotes
+"   ysiw] - Add surrounding brackets around word (with space)
+"   ysiw[ - Add surrounding brackets around word (no space)
+"   yssb  - Surround entire line with parentheses
+"   yss)  - Surround entire line with parentheses (no space)
+"   S<p>  - In visual mode, surround selection with <p> tags
+"
+" Common surroundings:
+"   ( or ) for parentheses
+"   { or } for braces
+"   [ or ] for brackets
+"   < or > for angle brackets
+"   ' for single quotes
+"   " for double quotes
+"   ` for backticks
+"   t for HTML/XML tags (will prompt for tag name)
+
+"==============================================================================
 " GIT FUGITIVE MAPPINGS
 "==============================================================================
 nnoremap <leader>gs :Git status<CR>
