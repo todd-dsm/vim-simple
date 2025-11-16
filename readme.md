@@ -2,7 +2,17 @@
 
 This is pretty much a "sensible defaults" build that supports Bash auto-completions. I just don't like writing GNU Bash scripts in an IDE; I wasn't raised that way.
 
-If you haven't moved to Tahoe yet, then check out the `pre-tahoe` branch; the big difference is color support.
+## The PRE-TAHOE Edition
+
+The macOS Terminal only supported 256 colors before Tahoe; it's what we had.
+
+```shell
+% grep -nA3 'COLOR SCHEME' vimrc
+138:" COLOR SCHEME
+139-"==============================================================================
+140-" Color the visual guide
+141-highlight colorcolumn ctermbg=237
+```
 
 ## Quick Start
 
@@ -21,7 +31,6 @@ This should explain the broad strokes:
 % tree -d -L1  ~/.vim-plugged
 ~/.vim-plugged
 ├── ale
-├── auto-pairs
 ├── L9
 ├── tlib_vim
 ├── vim-addon-mw-utils
