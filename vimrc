@@ -137,27 +137,23 @@ endfunction
 "==============================================================================
 " COLOR SCHEME
 "==============================================================================
-" Color the visual guide
-highlight colorcolumn ctermbg=237
-
 " Enable true color support only in iTerm2
-if $TERM_PROGRAM == 'iTerm.app' || ($TERM_PROGRAM == 'Apple_Terminal' && has('termguicolors'))
+if $TERM_PROGRAM == 'iTerm.app'
   set termguicolors
 else
   set t_Co=256
+  set notermguicolors
 endif
 
-" Set dark background
 set background=dark
-
-" Enable Solarized8 colorscheme (only if installed)
 silent! colorscheme solarized8
 
-" Fix line number and sign column backgrounds
-highlight clear LineNr
-highlight clear SignColumn
-highlight LineNr guibg=NONE ctermbg=NONE
-highlight SignColumn guibg=NONE ctermbg=NONE
+" Override backgrounds to match terminal
+highlight colorcolumn ctermbg=237
+highlight Normal ctermbg=NONE guibg=NONE
+highlight NonText ctermbg=NONE guibg=NONE
+highlight LineNr ctermbg=NONE guibg=NONE
+highlight SignColumn ctermbg=NONE guibg=NONE
 
 "==============================================================================
 " USEFUL MAPPINGS
