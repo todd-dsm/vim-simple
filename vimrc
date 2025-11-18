@@ -137,8 +137,8 @@ endfunction
 "==============================================================================
 " COLOR SCHEME
 "==============================================================================
-" Enable true color support only in iTerm2
-if $TERM_PROGRAM == 'iTerm.app'
+" Enable true color support for iTerm2 and Apple Terminal with xterm-256color
+if $TERM_PROGRAM == 'iTerm.app' || ($TERM_PROGRAM == 'Apple_Terminal' && $TERM == 'xterm-256color')
   set termguicolors
 else
   set t_Co=256
